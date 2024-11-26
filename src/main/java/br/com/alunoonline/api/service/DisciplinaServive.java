@@ -1,7 +1,6 @@
 package br.com.alunoonline.api.service;
 
 import br.com.alunoonline.api.model.Disciplina;
-import br.com.alunoonline.api.model.Professor;
 import br.com.alunoonline.api.repository.DisciplinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +44,9 @@ public class DisciplinaServive {
         disciplinaEditada.setNome(disciplina.getNome());
 
         disciplinaRepository.save(disciplinaEditada);
+    }
 
+    public List<Disciplina> listarDisciplinasDoProf(Long professorId) {
+        return disciplinaRepository.findByProfessorId(professorId);
     }
 }
